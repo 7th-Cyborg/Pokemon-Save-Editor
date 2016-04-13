@@ -1,0 +1,10 @@
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\bin\Release\Pokemon Save Editor.exe
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\bin\Release\Pokemon Save Editor.pdb
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon_Save_Editor.PokemonSavegameEditor.resources
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon_Save_Editor.Properties.Resources.resources
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon_Save_Editor.ItemEdit.resources
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon_Save_Editor.PokedexEdit.resources
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon_Save_Editor.PokemonEdit.resources
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon Save Editor.csproj.GenerateResource.Cache
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon Save Editor.exe
+E:\GitHub\Pokemon Save Editor\Pokemon Save Editor\obj\Release\Pokemon Save Editor.pdb

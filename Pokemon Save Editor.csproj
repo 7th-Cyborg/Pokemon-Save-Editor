@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65F946EA-F756-4985-8B37-82EE6D344410}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pokemon_Save_Editor</RootNamespace>
+    <AssemblyName>Pokemon Save Editor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>PokemonBall.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Hexadecimal.cs" />
+    <Compile Include="ItemEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemEdit.Designer.cs">
+      <DependentUpon>ItemEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewNF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PokedexEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokedexEdit.Designer.cs">
+      <DependentUpon>PokedexEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PokemonEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokemonEdit.Designer.cs">
+      <DependentUpon>PokemonEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PokemonSavegameEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PokemonSavegameEditor.Designer.cs">
+      <DependentUpon>PokemonSavegameEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PokemonConstants.cs" />
+    <Compile Include="PokemonSave.cs" />
+    <Compile Include="PokemonTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PokemonSavegameEditor.resx">
+      <DependentUpon>PokemonSavegameEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Structures\Item.cs" />
+    <Compile Include="Structures\ItemType.cs" />
+    <Compile Include="Structures\Player.cs" />
+    <Compile Include="Structures\PlayerBag.cs" />
+    <Compile Include="Structures\Pokedex.cs" />
+    <Compile Include="Structures\Pokemon.cs" />
+    <Compile Include="Structures\PokemonData.cs" />
+    <Compile Include="Structures\PokemonStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\PokemonType\Bug.png" />
+    <EmbeddedResource Include="Images\PokemonType\Dark.png" />
+    <EmbeddedResource Include="Images\PokemonType\Dragon.png" />
+    <EmbeddedResource Include="Images\PokemonType\Electric.png" />
+    <EmbeddedResource Include="Images\PokemonType\Fighting.png" />
+    <EmbeddedResource Include="Images\PokemonType\Fire.png" />
+    <EmbeddedResource Include="Images\PokemonType\Flying.png" />
+    <EmbeddedResource Include="Images\PokemonType\Ghost.png" />
+    <EmbeddedResource Include="Images\PokemonType\Grass.png" />
+    <EmbeddedResource Include="Images\PokemonType\Ground.png" />
+    <EmbeddedResource Include="Images\PokemonType\Ice.png" />
+    <EmbeddedResource Include="Images\PokemonType\Normal.png" />
+    <EmbeddedResource Include="Images\PokemonType\Nothing.png" />
+    <EmbeddedResource Include="Images\PokemonType\Poison.png" />
+    <EmbeddedResource Include="Images\PokemonType\Psychic.png" />
+    <EmbeddedResource Include="Images\PokemonType\Rock.png" />
+    <EmbeddedResource Include="Images\PokemonType\Steel.png" />
+    <EmbeddedResource Include="Images\PokemonType\Water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Pokemon\1.png" />
+    <EmbeddedResource Include="Images\Pokemon\10.png" />
+    <EmbeddedResource Include="Images\Pokemon\100.png" />
+    <EmbeddedResource Include="Images\Pokemon\101.png" />
+    <EmbeddedResource Include="Images\Pokemon\102.png" />
+    <EmbeddedResource Include="Images\Pokemon\103.png" />
+    <EmbeddedResource Include="Images\Pokemon\104.png" />
+    <EmbeddedResource Include="Images\Pokemon\105.png" />
+    <EmbeddedResource Include="Images\Pokemon\106.png" />
+    <EmbeddedResource Include="Images\Pokemon\107.png" />
+    <EmbeddedResource Include="Images\Pokemon\108.png" />
+    <EmbeddedResource Include="Images\Pokemon\109.png" />
+    <EmbeddedResource Include="Images\Pokemon\11.png" />
+    <EmbeddedResource Include="Images\Pokemon\110.png" />
+    <EmbeddedResource Include="Images\Pokemon\111.png" />
+    <EmbeddedResource Include="Images\Pokemon\112.png" />
+    <EmbeddedResource Include="Images\Pokemon\113.png" />
+    <EmbeddedResource Include="Images\Pokemon\114.png" />
+    <EmbeddedResource Include="Images\Pokemon\115.png" />
+    <EmbeddedResource Include="Images\Pokemon\116.png" />
+    <EmbeddedResource Include="Images\Pokemon\117.png" />
+    <EmbeddedResource Include="Images\Pokemon\118.png" />
+    <EmbeddedResource Include="Images\Pokemon\119.png" />
+    <EmbeddedResource Include="Images\Pokemon\12.png" />
+    <EmbeddedResource Include="Images\Pokemon\120.png" />
+    <EmbeddedResource Include="Images\Pokemon\121.png" />
+    <EmbeddedResource Include="Images\Pokemon\122.png" />
+    <EmbeddedResource Include="Images\Pokemon\123.png" />
+    <EmbeddedResource Include="Images\Pokemon\124.png" />
+    <EmbeddedResource Include="Images\Pokemon\125.png" />
+    <EmbeddedResource Include="Images\Pokemon\126.png" />
+    <EmbeddedResource Include="Images\Pokemon\127.png" />
+    <EmbeddedResource Include="Images\Pokemon\128.png" />
+    <EmbeddedResource Include="Images\Pokemon\129.png" />
+    <EmbeddedResource Include="Images\Pokemon\13.png" />
+    <EmbeddedResource Include="Images\Pokemon\130.png" />
+    <EmbeddedResource Include="Images\Pokemon\131.png" />
+    <EmbeddedResource Include="Images\Pokemon\132.png" />
+    <EmbeddedResource Include="Images\Pokemon\133.png" />
+    <EmbeddedResource Include="Images\Pokemon\134.png" />
+    <EmbeddedResource Include="Images\Pokemon\135.png" />
+    <EmbeddedResource Include="Images\Pokemon\136.png" />
+    <EmbeddedResource Include="Images\Pokemon\137.png" />
+    <EmbeddedResource Include="Images\Pokemon\138.png" />
+    <EmbeddedResource Include="Images\Pokemon\139.png" />
+    <EmbeddedResource Include="Images\Pokemon\14.png" />
+    <EmbeddedResource Include="Images\Pokemon\140.png" />
+    <EmbeddedResource Include="Images\Pokemon\141.png" />
+    <EmbeddedResource Include="Images\Pokemon\142.png" />
+    <EmbeddedResource Include="Images\Pokemon\143.png" />
+    <EmbeddedResource Include="Images\Pokemon\144.png" />
+    <EmbeddedResource Include="Images\Pokemon\145.png" />
+    <EmbeddedResource Include="Images\Pokemon\146.png" />
+    <EmbeddedResource Include="Images\Pokemon\147.png" />
+    <EmbeddedResource Include="Images\Pokemon\148.png" />
+    <EmbeddedResource Include="Images\Pokemon\149.png" />
+    <EmbeddedResource Include="Images\Pokemon\15.png" />
+    <EmbeddedResource Include="Images\Pokemon\150.png" />
+    <EmbeddedResource Include="Images\Pokemon\151.png" />
+    <EmbeddedResource Include="Images\Pokemon\152.png" />
+    <EmbeddedResource Include="Images\Pokemon\153.png" />
+    <EmbeddedResource Include="Images\Pokemon\154.png" />
+    <EmbeddedResource Include="Images\Pokemon\155.png" />
+    <EmbeddedResource Include="Images\Pokemon\156.png" />
+    <EmbeddedResource Include="Images\Pokemon\157.png" />
+    <EmbeddedResource Include="Images\Pokemon\158.png" />
+    <EmbeddedResource Include="Images\Pokemon\159.png" />
+    <EmbeddedResource Include="Images\Pokemon\16.png" />
+    <EmbeddedResource Include="Images\Pokemon\160.png" />
+    <EmbeddedResource Include="Images\Pokemon\161.png" />
+    <EmbeddedResource Include="Images\Pokemon\162.png" />
+    <EmbeddedResource Include="Images\Pokemon\163.png" />
+    <EmbeddedResource Include="Images\Pokemon\164.png" />
+    <EmbeddedResource Include="Images\Pokemon\165.png" />
+    <EmbeddedResource Include="Images\Pokemon\166.png" />
+    <EmbeddedResource Include="Images\Pokemon\167.png" />
+    <EmbeddedResource Include="Images\Pokemon\168.png" />
+    <EmbeddedResource Include="Images\Pokemon\169.png" />
+    <EmbeddedResource Include="Images\Pokemon\17.png" />
+    <EmbeddedResource Include="Images\Pokemon\170.png" />
+    <EmbeddedResource Include="Images\Pokemon\171.png" />
+    <EmbeddedResource Include="Images\Pokemon\172.png" />
+    <EmbeddedResource Include="Images\Pokemon\173.png" />
+    <EmbeddedResource Include="Images\Pokemon\174.png" />
+    <EmbeddedResource Include="Images\Pokemon\175.png" />
+    <EmbeddedResource Include="Images\Pokemon\176.png" />
+    <EmbeddedResource Include="Images\Pokemon\177.png" />
+    <EmbeddedResource Include="Images\Pokemon\178.png" />
+    <EmbeddedResource Include="Images\Pokemon\179.png" />
+    <EmbeddedResource Include="Images\Pokemon\18.png" />
+    <EmbeddedResource Include="Images\Pokemon\180.png" />
+    <EmbeddedResource Include="Images\Pokemon\181.png" />
+    <EmbeddedResource Include="Images\Pokemon\182.png" />
+    <EmbeddedResource Include="Images\Pokemon\183.png" />
+    <EmbeddedResource Include="Images\Pokemon\184.png" />
+    <EmbeddedResource Include="Images\Pokemon\185.png" />
+    <EmbeddedResource Include="Images\Pokemon\186.png" />
+    <EmbeddedResource Include="Images\Pokemon\187.png" />
+    <EmbeddedResource Include="Images\Pokemon\188.png" />
+    <EmbeddedResource Include="Images\Pokemon\189.png" />
+    <EmbeddedResource Include="Images\Pokemon\19.png" />
+    <EmbeddedResource Include="Images\Pokemon\190.png" />
+    <EmbeddedResource Include="Images\Pokemon\191.png" />
+    <EmbeddedResource Include="Images\Pokemon\192.png" />
+    <EmbeddedResource Include="Images\Pokemon\193.png" />
+    <EmbeddedResource Include="Images\Pokemon\194.png" />
+    <EmbeddedResource Include="Images\Pokemon\195.png" />
+    <EmbeddedResource Include="Images\Pokemon\196.png" />
+    <EmbeddedResource Include="Images\Pokemon\197.png" />
+    <EmbeddedResource Include="Images\Pokemon\198.png" />
+    <EmbeddedResource Include="Images\Pokemon\199.png" />
+    <EmbeddedResource Include="Images\Pokemon\2.png" />
+    <EmbeddedResource Include="Images\Pokemon\20.png" />
+    <EmbeddedResource Include="Images\Pokemon\200.png" />
+    <EmbeddedResource Include="Images\Pokemon\201.png" />
+    <EmbeddedResource Include="Images\Pokemon\202.png" />
+    <EmbeddedResource Include="Images\Pokemon\203.png" />
+    <EmbeddedResource Include="Images\Pokemon\204.png" />
+    <EmbeddedResource Include="Images\Pokemon\205.png" />
+    <EmbeddedResource Include="Images\Pokemon\206.png" />
+    <EmbeddedResource Include="Images\Pokemon\207.png" />
+    <EmbeddedResource Include="Images\Pokemon\208.png" />
+    <EmbeddedResource Include="Images\Pokemon\209.png" />
+    <EmbeddedResource Include="Images\Pokemon\21.png" />
+    <EmbeddedResource Include="Images\Pokemon\210.png" />
+    <EmbeddedResource Include="Images\Pokemon\211.png" />
+    <EmbeddedResource Include="Images\Pokemon\212.png" />
+    <EmbeddedResource Include="Images\Pokemon\213.png" />
+    <EmbeddedResource Include="Images\Pokemon\214.png" />
+    <EmbeddedResource Include="Images\Pokemon\215.png" />
+    <EmbeddedResource Include="Images\Pokemon\216.png" />
+    <EmbeddedResource Include="Images\Pokemon\217.png" />
+    <EmbeddedResource Include="Images\Pokemon\218.png" />
+    <EmbeddedResource Include="Images\Pokemon\219.png" />
+    <EmbeddedResource Include="Images\Pokemon\22.png" />
+    <EmbeddedResource Include="Images\Pokemon\220.png" />
+    <EmbeddedResource Include="Images\Pokemon\221.png" />
+    <EmbeddedResource Include="Images\Pokemon\222.png" />
+    <EmbeddedResource Include="Images\Pokemon\223.png" />
+    <EmbeddedResource Include="Images\Pokemon\224.png" />
+    <EmbeddedResource Include="Images\Pokemon\225.png" />
+    <EmbeddedResource Include="Images\Pokemon\226.png" />
+    <EmbeddedResource Include="Images\Pokemon\227.png" />
+    <EmbeddedResource Include="Images\Pokemon\228.png" />
+    <EmbeddedResource Include="Images\Pokemon\229.png" />
+    <EmbeddedResource Include="Images\Pokemon\23.png" />
+    <EmbeddedResource Include="Images\Pokemon\230.png" />
+    <EmbeddedResource Include="Images\Pokemon\231.png" />
+    <EmbeddedResource Include="Images\Pokemon\232.png" />
+    <EmbeddedResource Include="Images\Pokemon\233.png" />
+    <EmbeddedResource Include="Images\Pokemon\234.png" />
+    <EmbeddedResource Include="Images\Pokemon\235.png" />
+    <EmbeddedResource Include="Images\Pokemon\236.png" />
+    <EmbeddedResource Include="Images\Pokemon\237.png" />
+    <EmbeddedResource Include="Images\Pokemon\238.png" />
+    <EmbeddedResource Include="Images\Pokemon\239.png" />
+    <EmbeddedResource Include="Images\Pokemon\24.png" />
+    <EmbeddedResource Include="Images\Pokemon\240.png" />
+    <EmbeddedResource Include="Images\Pokemon\241.png" />
+    <EmbeddedResource Include="Images\Pokemon\242.png" />
+    <EmbeddedResource Include="Images\Pokemon\243.png" />
+    <EmbeddedResource Include="Images\Pokemon\244.png" />
+    <EmbeddedResource Include="Images\Pokemon\245.png" />
+    <EmbeddedResource Include="Images\Pokemon\246.png" />
+    <EmbeddedResource Include="Images\Pokemon\247.png" />
+    <EmbeddedResource Include="Images\Pokemon\248.png" />
+    <EmbeddedResource Include="Images\Pokemon\249.png" />
+    <EmbeddedResource Include="Images\Pokemon\25.png" />
+    <EmbeddedResource Include="Images\Pokemon\250.png" />
+    <EmbeddedResource Include="Images\Pokemon\251.png" />
+    <EmbeddedResource Include="Images\Pokemon\252.png" />
+    <EmbeddedResource Include="Images\Pokemon\253.png" />
+    <EmbeddedResource Include="Images\Pokemon\254.png" />
+    <EmbeddedResource Include="Images\Pokemon\255.png" />
+    <EmbeddedResource Include="Images\Pokemon\256.png" />
+    <EmbeddedResource Include="Images\Pokemon\257.png" />
+    <EmbeddedResource Include="Images\Pokemon\258.png" />
+    <EmbeddedResource Include="Images\Pokemon\259.png" />
+    <EmbeddedResource Include="Images\Pokemon\26.png" />
+    <EmbeddedResource Include="Images\Pokemon\260.png" />
+    <EmbeddedResource Include="Images\Pokemon\261.png" />
+    <EmbeddedResource Include="Images\Pokemon\262.png" />
+    <EmbeddedResource Include="Images\Pokemon\263.png" />
+    <EmbeddedResource Include="Images\Pokemon\264.png" />
+    <EmbeddedResource Include="Images\Pokemon\265.png" />
+    <EmbeddedResource Include="Images\Pokemon\266.png" />
+    <EmbeddedResource Include="Images\Pokemon\267.png" />
+    <EmbeddedResource Include="Images\Pokemon\268.png" />
+    <EmbeddedResource Include="Images\Pokemon\269.png" />
+    <EmbeddedResource Include="Images\Pokemon\27.png" />
+    <EmbeddedResource Include="Images\Pokemon\270.png" />
+    <EmbeddedResource Include="Images\Pokemon\271.png" />
+    <EmbeddedResource Include="Images\Pokemon\272.png" />
+    <EmbeddedResource Include="Images\Pokemon\273.png" />
+    <EmbeddedResource Include="Images\Pokemon\274.png" />
+    <EmbeddedResource Include="Images\Pokemon\275.png" />
+    <EmbeddedResource Include="Images\Pokemon\276.png" />
+    <EmbeddedResource Include="Images\Pokemon\277.png" />
+    <EmbeddedResource Include="Images\Pokemon\278.png" />
+    <EmbeddedResource Include="Images\Pokemon\279.png" />
+    <EmbeddedResource Include="Images\Pokemon\28.png" />
+    <EmbeddedResource Include="Images\Pokemon\280.png" />
+    <EmbeddedResource Include="Images\Pokemon\281.png" />
+    <EmbeddedResource Include="Images\Pokemon\282.png" />
+    <EmbeddedResource Include="Images\Pokemon\283.png" />
+    <EmbeddedResource Include="Images\Pokemon\284.png" />
+    <EmbeddedResource Include="Images\Pokemon\285.png" />
+    <EmbeddedResource Include="Images\Pokemon\286.png" />
+    <EmbeddedResource Include="Images\Pokemon\287.png" />
+    <EmbeddedResource Include="Images\Pokemon\288.png" />
+    <EmbeddedResource Include="Images\Pokemon\289.png" />
+    <EmbeddedResource Include="Images\Pokemon\29.png" />
+    <EmbeddedResource Include="Images\Pokemon\290.png" />
+    <EmbeddedResource Include="Images\Pokemon\291.png" />
+    <EmbeddedResource Include="Images\Pokemon\292.png" />
+    <EmbeddedResource Include="Images\Pokemon\293.png" />
+    <EmbeddedResource Include="Images\Pokemon\294.png" />
+    <EmbeddedResource Include="Images\Pokemon\295.png" />
+    <EmbeddedResource Include="Images\Pokemon\296.png" />
+    <EmbeddedResource Include="Images\Pokemon\297.png" />
+    <EmbeddedResource Include="Images\Pokemon\298.png" />
+    <EmbeddedResource Include="Images\Pokemon\299.png" />
+    <EmbeddedResource Include="Images\Pokemon\3.png" />
+    <EmbeddedResource Include="Images\Pokemon\30.png" />
+    <EmbeddedResource Include="Images\Pokemon\300.png" />
+    <EmbeddedResource Include="Images\Pokemon\301.png" />
+    <EmbeddedResource Include="Images\Pokemon\302.png" />
+    <EmbeddedResource Include="Images\Pokemon\303.png" />
+    <EmbeddedResource Include="Images\Pokemon\304.png" />
+    <EmbeddedResource Include="Images\Pokemon\305.png" />
+    <EmbeddedResource Include="Images\Pokemon\306.png" />
+    <EmbeddedResource Include="Images\Pokemon\307.png" />
+    <EmbeddedResource Include="Images\Pokemon\308.png" />
+    <EmbeddedResource Include="Images\Pokemon\309.png" />
+    <EmbeddedResource Include="Images\Pokemon\31.png" />
+    <EmbeddedResource Include="Images\Pokemon\310.png" />
+    <EmbeddedResource Include="Images\Pokemon\311.png" />
+    <EmbeddedResource Include="Images\Pokemon\312.png" />
+    <EmbeddedResource Include="Images\Pokemon\313.png" />
+    <EmbeddedResource Include="Images\Pokemon\314.png" />
+    <EmbeddedResource Include="Images\Pokemon\315.png" />
+    <EmbeddedResource Include="Images\Pokemon\316.png" />
+    <EmbeddedResource Include="Images\Pokemon\317.png" />
+    <EmbeddedResource Include="Images\Pokemon\318.png" />
+    <EmbeddedResource Include="Images\Pokemon\319.png" />
+    <EmbeddedResource Include="Images\Pokemon\32.png" />
+    <EmbeddedResource Include="Images\Pokemon\320.png" />
+    <EmbeddedResource Include="Images\Pokemon\321.png" />
+    <EmbeddedResource Include="Images\Pokemon\322.png" />
+    <EmbeddedResource Include="Images\Pokemon\323.png" />
+    <EmbeddedResource Include="Images\Pokemon\324.png" />
+    <EmbeddedResource Include="Images\Pokemon\325.png" />
+    <EmbeddedResource Include="Images\Pokemon\326.png" />
+    <EmbeddedResource Include="Images\Pokemon\327.png" />
+    <EmbeddedResource Include="Images\Pokemon\328.png" />
+    <EmbeddedResource Include="Images\Pokemon\329.png" />
+    <EmbeddedResource Include="Images\Pokemon\33.png" />
+    <EmbeddedResource Include="Images\Pokemon\330.png" />
+    <EmbeddedResource Include="Images\Pokemon\331.png" />
+    <EmbeddedResource Include="Images\Pokemon\332.png" />
+    <EmbeddedResource Include="Images\Pokemon\333.png" />
+    <EmbeddedResource Include="Images\Pokemon\334.png" />
+    <EmbeddedResource Include="Images\Pokemon\335.png" />
+    <EmbeddedResource Include="Images\Pokemon\336.png" />
+    <EmbeddedResource Include="Images\Pokemon\337.png" />
+    <EmbeddedResource Include="Images\Pokemon\338.png" />
+    <EmbeddedResource Include="Images\Pokemon\339.png" />
+    <EmbeddedResource Include="Images\Pokemon\34.png" />
+    <EmbeddedResource Include="Images\Pokemon\340.png" />
+    <EmbeddedResource Include="Images\Pokemon\341.png" />
+    <EmbeddedResource Include="Images\Pokemon\342.png" />
+    <EmbeddedResource Include="Images\Pokemon\343.png" />
+    <EmbeddedResource Include="Images\Pokemon\344.png" />
+    <EmbeddedResource Include="Images\Pokemon\345.png" />
+    <EmbeddedResource Include="Images\Pokemon\346.png" />
+    <EmbeddedResource Include="Images\Pokemon\347.png" />
+    <EmbeddedResource Include="Images\Pokemon\348.png" />
+    <EmbeddedResource Include="Images\Pokemon\349.png" />
+    <EmbeddedResource Include="Images\Pokemon\35.png" />
+    <EmbeddedResource Include="Images\Pokemon\350.png" />
+    <EmbeddedResource Include="Images\Pokemon\351.png" />
+    <EmbeddedResource Include="Images\Pokemon\352.png" />
+    <EmbeddedResource Include="Images\Pokemon\353.png" />
+    <EmbeddedResource Include="Images\Pokemon\354.png" />
+    <EmbeddedResource Include="Images\Pokemon\355.png" />
+    <EmbeddedResource Include="Images\Pokemon\356.png" />
+    <EmbeddedResource Include="Images\Pokemon\357.png" />
+    <EmbeddedResource Include="Images\Pokemon\358.png" />
+    <EmbeddedResource Include="Images\Pokemon\359.png" />
+    <EmbeddedResource Include="Images\Pokemon\36.png" />
+    <EmbeddedResource Include="Images\Pokemon\360.png" />
+    <EmbeddedResource Include="Images\Pokemon\361.png" />
+    <EmbeddedResource Include="Images\Pokemon\362.png" />
+    <EmbeddedResource Include="Images\Pokemon\363.png" />
+    <EmbeddedResource Include="Images\Pokemon\364.png" />
+    <EmbeddedResource Include="Images\Pokemon\365.png" />
+    <EmbeddedResource Include="Images\Pokemon\366.png" />
+    <EmbeddedResource Include="Images\Pokemon\367.png" />
+    <EmbeddedResource Include="Images\Pokemon\368.png" />
+    <EmbeddedResource Include="Images\Pokemon\369.png" />
+    <EmbeddedResource Include="Images\Pokemon\37.png" />
+    <EmbeddedResource Include="Images\Pokemon\370.png" />
+    <EmbeddedResource Include="Images\Pokemon\371.png" />
+    <EmbeddedResource Include="Images\Pokemon\372.png" />
+    <EmbeddedResource Include="Images\Pokemon\373.png" />
+    <EmbeddedResource Include="Images\Pokemon\374.png" />
+    <EmbeddedResource Include="Images\Pokemon\375.png" />
+    <EmbeddedResource Include="Images\Pokemon\376.png" />
+    <EmbeddedResource Include="Images\Pokemon\377.png" />
+    <EmbeddedResource Include="Images\Pokemon\378.png" />
+    <EmbeddedResource Include="Images\Pokemon\379.png" />
+    <EmbeddedResource Include="Images\Pokemon\38.png" />
+    <EmbeddedResource Include="Images\Pokemon\380.png" />
+    <EmbeddedResource Include="Images\Pokemon\381.png" />
+    <EmbeddedResource Include="Images\Pokemon\382.png" />
+    <EmbeddedResource Include="Images\Pokemon\383.png" />
+    <EmbeddedResource Include="Images\Pokemon\384.png" />
+    <EmbeddedResource Include="Images\Pokemon\385.png" />
+    <EmbeddedResource Include="Images\Pokemon\386.png" />
+    <EmbeddedResource Include="Images\Pokemon\387.png" />
+    <EmbeddedResource Include="Images\Pokemon\39.png" />
+    <EmbeddedResource Include="Images\Pokemon\4.png" />
+    <EmbeddedResource Include="Images\Pokemon\40.png" />
+    <EmbeddedResource Include="Images\Pokemon\41.png" />
+    <EmbeddedResource Include="Images\Pokemon\42.png" />
+    <EmbeddedResource Include="Images\Pokemon\43.png" />
+    <EmbeddedResource Include="Images\Pokemon\44.png" />
+    <EmbeddedResource Include="Images\Pokemon\45.png" />
+    <EmbeddedResource Include="Images\Pokemon\46.png" />
+    <EmbeddedResource Include="Images\Pokemon\47.png" />
+    <EmbeddedResource Include="Images\Pokemon\48.png" />
+    <EmbeddedResource Include="Images\Pokemon\49.png" />
+    <EmbeddedResource Include="Images\Pokemon\5.png" />
+    <EmbeddedResource Include="Images\Pokemon\50.png" />
+    <EmbeddedResource Include="Images\Pokemon\51.png" />
+    <EmbeddedResource Include="Images\Pokemon\52.png" />
+    <EmbeddedResource Include="Images\Pokemon\53.png" />
+    <EmbeddedResource Include="Images\Pokemon\54.png" />
+    <EmbeddedResource Include="Images\Pokemon\55.png" />
+    <EmbeddedResource Include="Images\Pokemon\56.png" />
+    <EmbeddedResource Include="Images\Pokemon\57.png" />
+    <EmbeddedResource Include="Images\Pokemon\58.png" />
+    <EmbeddedResource Include="Images\Pokemon\59.png" />
+    <EmbeddedResource Include="Images\Pokemon\6.png" />
+    <EmbeddedResource Include="Images\Pokemon\60.png" />
+    <EmbeddedResource Include="Images\Pokemon\61.png" />
+    <EmbeddedResource Include="Images\Pokemon\62.png" />
+    <EmbeddedResource Include="Images\Pokemon\63.png" />
+    <EmbeddedResource Include="Images\Pokemon\64.png" />
+    <EmbeddedResource Include="Images\Pokemon\65.png" />
+    <EmbeddedResource Include="Images\Pokemon\66.png" />
+    <EmbeddedResource Include="Images\Pokemon\67.png" />
+    <EmbeddedResource Include="Images\Pokemon\68.png" />
+    <EmbeddedResource Include="Images\Pokemon\69.png" />
+    <EmbeddedResource Include="Images\Pokemon\7.png" />
+    <EmbeddedResource Include="Images\Pokemon\70.png" />
+    <EmbeddedResource Include="Images\Pokemon\71.png" />
+    <EmbeddedResource Include="Images\Pokemon\72.png" />
+    <EmbeddedResource Include="Images\Pokemon\73.png" />
+    <EmbeddedResource Include="Images\Pokemon\74.png" />
+    <EmbeddedResource Include="Images\Pokemon\75.png" />
+    <EmbeddedResource Include="Images\Pokemon\76.png" />
+    <EmbeddedResource Include="Images\Pokemon\77.png" />
+    <EmbeddedResource Include="Images\Pokemon\78.png" />
+    <EmbeddedResource Include="Images\Pokemon\79.png" />
+    <EmbeddedResource Include="Images\Pokemon\8.png" />
+    <EmbeddedResource Include="Images\Pokemon\80.png" />
+    <EmbeddedResource Include="Images\Pokemon\81.png" />
+    <EmbeddedResource Include="Images\Pokemon\82.png" />
+    <EmbeddedResource Include="Images\Pokemon\83.png" />
+    <EmbeddedResource Include="Images\Pokemon\84.png" />
+    <EmbeddedResource Include="Images\Pokemon\85.png" />
+    <EmbeddedResource Include="Images\Pokemon\86.png" />
+    <EmbeddedResource Include="Images\Pokemon\87.png" />
+    <EmbeddedResource Include="Images\Pokemon\88.png" />
+    <EmbeddedResource Include="Images\Pokemon\89.png" />
+    <EmbeddedResource Include="Images\Pokemon\9.png" />
+    <EmbeddedResource Include="Images\Pokemon\90.png" />
+    <EmbeddedResource Include="Images\Pokemon\91.png" />
+    <EmbeddedResource Include="Images\Pokemon\92.png" />
+    <EmbeddedResource Include="Images\Pokemon\93.png" />
+    <EmbeddedResource Include="Images\Pokemon\94.png" />
+    <EmbeddedResource Include="Images\Pokemon\95.png" />
+    <EmbeddedResource Include="Images\Pokemon\96.png" />
+    <EmbeddedResource Include="Images\Pokemon\97.png" />
+    <EmbeddedResource Include="Images\Pokemon\98.png" />
+    <EmbeddedResource Include="Images\Pokemon\99.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\PokemonContest\Beauty.png" />
+    <EmbeddedResource Include="Images\PokemonContest\Cool.png" />
+    <EmbeddedResource Include="Images\PokemonContest\Cute.png" />
+    <EmbeddedResource Include="Images\PokemonContest\Nothing.png" />
+    <EmbeddedResource Include="Images\PokemonContest\Smart.png" />
+    <EmbeddedResource Include="Images\PokemonContest\Tough.png" />
+    <EmbeddedResource Include="ItemEdit.resx">
+      <DependentUpon>ItemEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PokedexEdit.resx">
+      <DependentUpon>PokedexEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PokemonEdit.resx">
+      <DependentUpon>PokemonEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="PokemonBall.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
